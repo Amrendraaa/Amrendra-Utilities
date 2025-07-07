@@ -45,7 +45,7 @@ Amrendra's Utilities/
 1. **Clone or Download the Repository**
    - Download the project as a ZIP file and extract it, or clone the repository using:
      ```
-     git clone <repository-url>
+     git clone https://github.com/Amrendraaa/Amrendra-Utilities
      ```
 
 2. **Open the Application**
