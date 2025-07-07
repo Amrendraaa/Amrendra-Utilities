@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrendra's Utilities - Home</title>
+    <link rel="stylesheet" href="shared/styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 id="appTitle">Amrendra's Utilities</h1>
+                <div class="header-controls">
+                    <div class="user-profile">
+                        <button id="profileBtn" class="profile-btn" title="Edit Profile">
+                            <span id="userInitial">A</span>
+                        </button>
+                        <div id="profileDropdown" class="profile-dropdown">
+                            <div class="profile-info">
+                                <label for="userNameInput">Your Name:</label>
+                                <input type="text" id="userNameInput" placeholder="Enter your name">
+                                <button id="saveNameBtn" class="btn btn-secondary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">
+                        <span class="dark-icon">🌙</span>
+                        <span class="light-icon">☀️</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="welcome-section">
+                <h2>Welcome to Your Personal Utilities Hub</h2>
+                <p class="welcome-text">
+                    Organize your life with these powerful tools designed to boost your productivity and creativity.
+                </p>
+            </div>
+
+            <!-- Utilities Grid -->
+            <div class="utilities-grid">
+                <!-- To-Do List Card -->
+                <div class="utility-card" onclick="navigateTo('todo/todo.html')">
+                    <div class="utility-icon">📝</div>
+                    <h3>To-Do List</h3>
+                    <p>Organize your tasks with labels, due dates, and priority levels. Never miss a deadline again!</p>
+                    <div class="utility-features">
+                        <span class="feature-tag">Task Management</span>
+                        <span class="feature-tag">Due Dates</span>
+                        <span class="feature-tag">Labels</span>
+                    </div>
+                </div>
+
+                <!-- Study Planner Card -->
+                <div class="utility-card" onclick="navigateTo('study/study.html')">
+                    <div class="utility-icon">📚</div>
+                    <h3>Study Planner</h3>
+                    <p>Boost your learning with a Pomodoro timer, study task management, and focus time tracking.</p>
+                    <div class="utility-features">
+                        <span class="feature-tag">Pomodoro Timer</span>
+                        <span class="feature-tag">Study Tasks</span>
+                        <span class="feature-tag">Focus Tracking</span>
+                    </div>
+                </div>
+
+                <!-- Recipe Organizer Card -->
+                <div class="utility-card" onclick="navigateTo('recipes/recipes.html')">
+                    <div class="utility-icon">👨‍🍳</div>
+                    <h3>Recipe Organizer</h3>
+                    <p>Store and organize your favorite recipes with ingredients, steps, and cooking times.</p>
+                    <div class="utility-features">
+                        <span class="feature-tag">Recipe Storage</span>
+                        <span class="feature-tag">Search & Sort</span>
+                        <span class="feature-tag">Step-by-Step</span>
+                    </div>
+                </div>
+
+                <!-- Idea Board Card -->
+                <div class="utility-card" onclick="navigateTo('ideas/ideas.html')">
+                    <div class="utility-icon">💡</div>
+                    <h3>Idea Board</h3>
+                    <p>Capture and organize your creative ideas with categories and detailed descriptions.</p>
+                    <div class="utility-features">
+                        <span class="feature-tag">Idea Capture</span>
+                        <span class="feature-tag">Categories</span>
+                        <span class="feature-tag">Creative</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-section">
+                <h3>Your Progress Overview</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalTasks">0</div>
+                        <div class="stat-label">Total Tasks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="completedTasks">0</div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="focusMinutes">0</div>
+                        <div class="stat-label">Focus Minutes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalRecipes">0</div>
+                        <div class="stat-label">Recipes</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="navigateTo('todo/todo.html')">
+                        ➕ Add New Task
+                    </button>
+                    <button class="btn btn-secondary" onclick="navigateTo('study/study.html')">
+                        ⏱️ Start Study Session
+                    </button>
+                    <button class="btn btn-secondary" onclick="navigateTo('recipes/recipes.html')">
+                        👨‍🍳 Add Recipe
+                    </button>
+                    <button class="btn btn-secondary" onclick="navigateTo('ideas/ideas.html')">
+                        💡 Capture Idea
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Export Data Button -->
+    <div class="export-container">
+        <button id="exportDataBtn" class="export-btn">
+            📄 Export My Data
+        </button>
+    </div>
+
+    <script src="shared/utils.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
