@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner - Amrendra's Utilities</title>
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="study.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="back-btn" onclick="navigateTo('../index.html')">
+                        ← Back to Home
+                    </button>
+                    <h1>Study Planner</h1>
+                </div>
+                <div class="header-controls">
+                    <div class="user-profile">
+                        <button id="profileBtn" class="profile-btn" title="Edit Profile">
+                            <span id="userInitial">A</span>
+                        </button>
+                        <div id="profileDropdown" class="profile-dropdown">
+                            <div class="profile-info">
+                                <label for="userNameInput">Your Name:</label>
+                                <input type="text" id="userNameInput" placeholder="Enter your name">
+                                <button id="saveNameBtn" class="btn btn-secondary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">
+                        <span class="dark-icon">🌙</span>
+                        <span class="light-icon">☀️</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Study Task Creation Form -->
+            <div class="form-container">
+                <h3>Add Study Task</h3>
+                <form id="studyTaskForm">
+                    <div class="form-group">
+                        <label for="studyTaskName">Task Name:</label>
+                        <input type="text" id="studyTaskName" name="studyTaskName" class="form-control" required placeholder="Enter study task name">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" class="form-control" required placeholder="Enter subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="studyDueDate">Due Date:</label>
+                        <input type="date" id="studyDueDate" name="studyDueDate" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Study Task</button>
+                </form>
+            </div>
+
+            <!-- Pomodoro Timer Section -->
+            <div class="card">
+                <h3>Pomodoro Timer</h3>
+                <div class="timer-display">
+                    <div class="timer-time" id="timerDisplay">25:00</div>
+                    <div class="timer-progress">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+                <div class="timer-controls">
+                    <div class="timer-presets" id="timerPresets">
+                        <!-- Timer presets will be dynamically added here -->
+                    </div>
+                    <div class="timer-buttons">
+                        <button id="startTimer" class="btn btn-primary">Start</button>
+                        <button id="pauseTimer" class="btn btn-secondary">Pause</button>
+                        <button id="resetTimer" class="btn btn-secondary">Reset</button>
+                        <button id="completeTimer" class="btn btn-success">Complete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Study Tasks Display -->
+            <div class="grid-2">
+                <!-- Custom Study Tasks -->
+                <div class="card">
+                    <h3>Study Tasks</h3>
+                    <div id="studyTasks">
+                        <!-- Custom study tasks will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Imported To-Do Tasks -->
+                <div class="card">
+                    <div class="section-header">
+                        <h3>Imported from To-Do List</h3>
+                        <button id="importFromTodo" class="btn btn-primary">Import Study Tasks</button>
+                    </div>
+                    <div id="importedTasks">
+                        <!-- Study tasks from To-Do List will be imported here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus Time Log -->
+            <div class="card">
+                <h3>Focus Time Log</h3>
+                <div id="focusLogs">
+                    <!-- Focus time entries will be dynamically added here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Export Data Button -->
+    <div class="export-container">
+        <button id="exportDataBtn" class="export-btn">
+            📄 Export My Data
+        </button>
+    </div>
+
+    <script src="../shared/utils.js"></script>
+    <script src="study.js"></script>
+</body>
+</html> 

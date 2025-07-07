@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Organizer - Amrendra's Utilities</title>
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="recipes.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="back-btn" onclick="navigateTo('../index.html')">
+                        ← Back to Home
+                    </button>
+                    <h1>Recipe Organizer</h1>
+                </div>
+                <div class="header-controls">
+                    <div class="user-profile">
+                        <button id="profileBtn" class="profile-btn" title="Edit Profile">
+                            <span id="userInitial">A</span>
+                        </button>
+                        <div id="profileDropdown" class="profile-dropdown">
+                            <div class="profile-info">
+                                <label for="userNameInput">Your Name:</label>
+                                <input type="text" id="userNameInput" placeholder="Enter your name">
+                                <button id="saveNameBtn" class="btn btn-secondary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">
+                        <span class="dark-icon">🌙</span>
+                        <span class="light-icon">☀️</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Recipe Creation Form -->
+            <div class="form-container">
+                <h3>Add New Recipe</h3>
+                <form id="recipeForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="recipeName">Recipe Name:</label>
+                            <input type="text" id="recipeName" name="recipeName" class="form-control" required placeholder="Enter recipe name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipeCategory">Category:</label>
+                            <select id="recipeCategory" name="recipeCategory" class="form-control" required>
+                                <option value="">Select category</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Snacks">Snacks</option>
+                                <option value="Desserts">Desserts</option>
+                                <option value="Beverages">Beverages</option>
+                                <option value="Appetizers">Appetizers</option>
+                                <option value="Main Course">Main Course</option>
+                                <option value="Side Dishes">Side Dishes</option>
+                                <option value="Soups">Soups</option>
+                                <option value="Salads">Salads</option>
+                                <option value="Breads">Breads</option>
+                                <option value="Pasta">Pasta</option>
+                                <option value="Seafood">Seafood</option>
+                                <option value="Vegetarian">Vegetarian</option>
+                                <option value="Vegan">Vegan</option>
+                                <option value="Gluten-Free">Gluten-Free</option>
+                                <option value="Quick & Easy">Quick & Easy</option>
+                                <option value="Slow Cooker">Slow Cooker</option>
+                                <option value="Grilling">Grilling</option>
+                                <option value="Baking">Baking</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prepTime">Prep Time (minutes):</label>
+                            <input type="number" id="prepTime" name="prepTime" class="form-control" required min="1" placeholder="e.g., 15">
+                        </div>
+                        <div class="form-group">
+                            <label for="cookTime">Cook Time (minutes):</label>
+                            <input type="number" id="cookTime" name="cookTime" class="form-control" required min="1" placeholder="e.g., 30">
+                        </div>
+                        <div class="form-group">
+                            <label for="servings">Servings:</label>
+                            <input type="number" id="servings" name="servings" class="form-control" required min="1" placeholder="e.g., 4">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipeDescription">Description:</label>
+                        <textarea id="recipeDescription" name="recipeDescription" class="form-control" rows="3" placeholder="Brief description of the recipe..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ingredients:</label>
+                        <div id="ingredientsList">
+                            <div class="ingredient-item">
+                                <input type="text" name="ingredients[]" class="form-control ingredient-input" placeholder="e.g., 2 cups flour" required>
+                                <button type="button" class="btn btn-danger remove-ingredient" onclick="removeIngredient(this)">×</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary add-ingredient-btn" onclick="addIngredient()">+ Add Ingredient</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Instructions:</label>
+                        <div id="instructionsList">
+                            <div class="instruction-item">
+                                <textarea name="instructions[]" class="form-control instruction-input" rows="2" placeholder="Step 1: ..." required></textarea>
+                                <button type="button" class="btn btn-danger remove-instruction" onclick="removeInstruction(this)">×</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary add-instruction-btn" onclick="addInstruction()">+ Add Step</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipeNotes">Notes (optional):</label>
+                        <textarea id="recipeNotes" name="recipeNotes" class="form-control" rows="3" placeholder="Any additional notes, tips, or variations..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save Recipe</button>
+                </form>
+            </div>
+
+            <!-- Recipe Filters and Search -->
+            <div class="filters-section">
+                <div class="search-box">
+                    <input type="text" id="searchRecipes" class="form-control" placeholder="Search recipes...">
+                </div>
+                <div class="filter-controls">
+                    <select id="categoryFilter" class="form-control">
+                        <option value="">All Categories</option>
+                    </select>
+                    <select id="sortRecipes" class="form-control">
+                        <option value="date">Sort by Date Added</option>
+                        <option value="name">Sort by Name</option>
+                        <option value="time">Sort by Total Time</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Recipes Display -->
+            <div class="recipes-grid" id="recipesContainer">
+                <!-- Recipes will be dynamically added here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Export Data Button -->
+    <div class="export-container">
+        <button id="exportDataBtn" class="export-btn">
+            📄 Export My Data
+        </button>
+    </div>
+
+    <script src="../shared/utils.js"></script>
+    <script src="recipes.js"></script>
+</body>
+</html> 

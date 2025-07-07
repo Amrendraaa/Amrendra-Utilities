@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List - Amrendra's Utilities</title>
+    <link rel="stylesheet" href="../shared/styles.css">
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="back-btn" onclick="navigateTo('../index.html')">
+                        ← Back to Home
+                    </button>
+                    <h1>To-Do List</h1>
+                </div>
+                <div class="header-controls">
+                    <div class="user-profile">
+                        <button id="profileBtn" class="profile-btn" title="Edit Profile">
+                            <span id="userInitial">A</span>
+                        </button>
+                        <div id="profileDropdown" class="profile-dropdown">
+                            <div class="profile-info">
+                                <label for="userNameInput">Your Name:</label>
+                                <input type="text" id="userNameInput" placeholder="Enter your name">
+                                <button id="saveNameBtn" class="btn btn-secondary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">
+                        <span class="dark-icon">🌙</span>
+                        <span class="light-icon">☀️</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Task Creation Form -->
+            <div class="form-container">
+                <h3>Add New Task</h3>
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label for="taskName">Task Name:</label>
+                        <input type="text" id="taskName" name="taskName" class="form-control" required placeholder="Enter task name">
+                    </div>
+                    <div class="form-group">
+                        <label for="dueDate">Due Date:</label>
+                        <input type="date" id="dueDate" name="dueDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskLabel">Label:</label>
+                        <select id="taskLabel" name="taskLabel" class="form-control" required>
+                            <option value="">Select a label</option>
+                            <option value="Job">Job</option>
+                            <option value="Home">Home</option>
+                            <option value="Study">Study</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                </form>
+            </div>
+
+            <!-- Tasks Display -->
+            <div class="grid-2">
+                <!-- Pending Tasks -->
+                <div class="card">
+                    <div class="section-header">
+                        <h3>Pending Tasks</h3>
+                    </div>
+                    <div id="pendingTasks">
+                        <!-- Pending tasks will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Completed Tasks -->
+                <div class="card">
+                    <div class="section-header">
+                        <h3>Completed Tasks</h3>
+                        <button id="clearCompleted" class="btn btn-secondary">Clear All</button>
+                    </div>
+                    <div id="completedTasks">
+                        <!-- Completed tasks will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Export Data Button -->
+    <div class="export-container">
+        <button id="exportDataBtn" class="export-btn">
+            📄 Export My Data
+        </button>
+    </div>
+
+    <script src="../shared/utils.js"></script>
+    <script src="todo.js"></script>
+</body>
+</html> 

@@ -1,0 +1,244 @@
+/* ===== STUDY-SPECIFIC STYLES ===== */
+
+/* Study Task Card Styles */
+.study-task-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: white;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.study-task-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.study-task-card.completed .task-name {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+.study-task-card.completed .task-details {
+    opacity: 0.7;
+}
+
+.study-task-card.imported {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+.study-task-subject {
+    background-color: #667eea;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Pomodoro Timer Styles */
+.timer-display {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.timer-time {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+.timer-progress {
+    width: 100%;
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 0%;
+    transition: width 1s linear;
+}
+
+.timer-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.timer-presets {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.timer-preset {
+    padding: 8px 16px;
+    border: 2px solid #667eea;
+    background: transparent;
+    color: #667eea;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.timer-preset:hover,
+.timer-preset.active {
+    background-color: #667eea;
+    color: white;
+}
+
+.timer-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Focus Time Log Styles */
+.focus-summary {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+}
+
+.focus-summary h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.focus-entries {
+    display: grid;
+    gap: 10px;
+}
+
+.focus-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border-left: 4px solid #667eea;
+}
+
+.focus-time {
+    font-weight: 500;
+    color: #667eea;
+}
+
+.focus-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Import Button */
+#importFromTodo {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+#importFromTodo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+/* Dark Mode Overrides for Study */
+body.dark-mode .study-task-card {
+    background-color: #2d2d2d;
+    border-color: #444;
+}
+
+body.dark-mode .study-task-card.imported {
+    background-color: #3d3d3d;
+    border-color: #555;
+}
+
+body.dark-mode .timer-time {
+    color: #667eea;
+}
+
+body.dark-mode .timer-progress {
+    background-color: #444;
+}
+
+body.dark-mode .timer-preset {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+body.dark-mode .timer-preset:hover,
+body.dark-mode .timer-preset.active {
+    background-color: #667eea;
+    color: white;
+}
+
+body.dark-mode .focus-entry {
+    background-color: #3d3d3d;
+    border-left-color: #667eea;
+}
+
+body.dark-mode .focus-time {
+    color: #667eea;
+}
+
+body.dark-mode .focus-date {
+    color: #b0b0b0;
+}
+
+/* Responsive Design for Study */
+@media (max-width: 768px) {
+    .study-task-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .task-actions {
+        align-self: flex-end;
+        margin-top: 10px;
+    }
+
+    .timer-time {
+        font-size: 2.5rem;
+    }
+
+    .timer-presets {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .timer-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .focus-entry {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+} 
